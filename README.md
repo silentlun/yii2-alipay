@@ -36,19 +36,19 @@ use silentlun\alipay\AliPay;
 
 class SiteController extends Controller
 {
-	public $alipayConfig = [
-		'app_id' => '支付宝应用ID',
-		'merchant_private_key' => '支付宝私钥',
-		'alipay_public_key' => '支付宝公钥',
-	];
+    public $alipayConfig = [
+        'app_id' => '支付宝应用ID',
+        'merchant_private_key' => '支付宝私钥',
+        'alipay_public_key' => '支付宝公钥',
+        ];
     public function actionPay()
     {
-		$order = []; // 订单信息
+        $order = []; // 订单信息
         $payment = new AliPay($this->alipayConfig);
-		$result = $payment->createWebPay($order);
-		return $this->renderPartial('alipay', [
-			'result' => $result,
-		]);
+        $result = $payment->createWebPay($order);
+        return $this->renderPartial('alipay', [
+            'result' => $result,
+        ]);
     }
 }
 ```
