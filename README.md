@@ -40,7 +40,7 @@ class SiteController extends Controller
         'app_id' => '支付宝应用ID',
         'merchant_private_key' => '支付宝私钥',
         'alipay_public_key' => '支付宝公钥',
-        ];
+    ];
     public function actionPay()
     {
         $order = []; // 订单信息
