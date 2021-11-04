@@ -45,12 +45,11 @@ class AliPay extends AopClient
         $bizcontent['body'] = $order['body'];
         $bizcontent['out_trade_no'] = $order['trade_sn'];
         $bizcontent['total_amount'] = $order['total_fee'];
-        //$bizcontent['timeout_express'] = "30";
+        $bizcontent['timeout_express'] = "90m";
         $bizcontent['product_code'] = "FAST_INSTANT_TRADE_PAY";
         $request->setNotifyUrl($order['notify_url']);
         $request->setReturnUrl($order['return_url']);
         $request->setBizContent(json_encode($bizcontent,JSON_UNESCAPED_UNICODE));
-        //这里和普通的接口调用不同，使用的是sdkExecute
         $response = $this->pageExecute($request);
         return $response;
     }
@@ -68,11 +67,11 @@ class AliPay extends AopClient
         $bizcontent['body'] = $order['body'];
         $bizcontent['out_trade_no'] = $order['trade_sn'];
         $bizcontent['total_amount'] = $order['total_fee'];
-        //$bizcontent['timeout_express'] = "30";
+        $bizcontent['timeout_express'] = "90m";
         $bizcontent['product_code'] = "QUICK_WAP_WAY";
         $request->setNotifyUrl($order['notify_url']);
+        $request->setReturnUrl($order['return_url']);
         $request->setBizContent(json_encode($bizcontent,JSON_UNESCAPED_UNICODE));
-        //这里和普通的接口调用不同，使用的是sdkExecute
         $response = $this->pageExecute($request);
         
         return $response;
@@ -91,11 +90,10 @@ class AliPay extends AopClient
         $bizcontent['body'] = $order['body'];
         $bizcontent['out_trade_no'] = $order['trade_sn'];
         $bizcontent['total_amount'] = $order['total_fee'];
-        //$bizcontent['timeout_express'] = "30";
+        $bizcontent['timeout_express'] = "90m";
         $bizcontent['product_code'] = "QUICK_MSECURITY_PAY";
         $request->setNotifyUrl($order['notify_url']);
         $request->setBizContent(json_encode($bizcontent,JSON_UNESCAPED_UNICODE));
-        //这里和普通的接口调用不同，使用的是sdkExecute
         $response = $this->sdkExecute($request);
         
         return $response;
